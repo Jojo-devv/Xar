@@ -24,7 +24,7 @@ mysql -u root -p < scims_schema.sql
 
 4. Configure your database credentials in config/db_config.js.
 
-### Frontend
+Frontend
 Open index.html in a browser to view the frontend.
 
  Running the Application

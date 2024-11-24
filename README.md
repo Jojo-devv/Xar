@@ -27,7 +27,7 @@ mysql -u root -p < scims_schema.sql
 ### Frontend
 Open index.html in a browser to view the frontend.
 
-### Running the Application
+ Running the Application
 1. Start the Backend Server 
 
 ```bash
@@ -36,7 +36,7 @@ node server.js
 
 2. Open your browser and navigate to http://localhost:3000 to interact with the inventory management system.
 
-### Minimum System Requirements 
+ Minimum System Requirements 
 Operating System: Windows, macOS, or Linux
 RAM: 2 GB or higher
 Disk Space: 50 MB for the application files

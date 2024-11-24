@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCIMS - Stock Control</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Stock Control and Inventory Management System</h1>
+    <div class="inventory-list">
+      <button onclick="fetchInventory()">Load Inventory</button>
+      <table id="inventory-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="add-product">
+      <h2>Add New Product</h2>
+      <form id="product-form">
+        <label for="name">Product Name</label>
+        <input type="text" id="name" required>
+
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" required>
+
+        <label for="price">Price</label>
+        <input type="number" id="price" required>
+
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -9,6 +9,6 @@ CREATE TABLE IF NOT EXISTS inventory (
   price DECIMAL(10, 2) NOT NULL
 );
 
--- Optional: Add sample data
+Add sample data
 INSERT INTO inventory (name, quantity, price) VALUES ('Apple', 100, 0.99);
 INSERT INTO inventory (name, quantity, price) VALUES ('Orange', 50, 1.25);

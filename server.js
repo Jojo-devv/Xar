@@ -26,7 +26,7 @@ db.connect((err) => {
   }
 });
 
-// Sample route to test connection
+// Route to test connection
 app.get('/', (req, res) => {
   res.send('SCIMS API is working!');
 });

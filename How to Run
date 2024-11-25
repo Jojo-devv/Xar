@@ -1,45 +1,79 @@
 
-# Stock Control and Inventory Management System (SCIMS)
+# Instructions for Running the Stock Control and Inventory Management System (SCIMS)
 
-## Prerequisites
-1. **Node.js** (version 14+)
-2. **MySQL** (version 5.7+)
+## Minimum System Requirements
+1. Operating System: Windows 10/11, macOS, or any Linux distribution.
+2. Java Development Kit (JDK): Version 11 or higher.
+3. MySQL Database Server: Version 8.0 or higher.
+4. RAM: At least 4GB (8GB recommended).
+5. Storage: At least 500MB of free disk space.
+6. Software: 
+   - Apache NetBeans IDE 12.0 or higher (for running/editing the source code).
+   - MySQL Workbench (for database management).
+   - A suitable text editor (e.g., Visual Studio Code, Notepad++) for configuration files.
 
-## Installation
+---
 
-### Backend (Node.js)
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/scims.git
-   cd scims
-2. Install dependencies:
+## Step-by-Step Instructions
 
-```bash
-npm install
-3. Set up MySQL database:
+### 1. Set Up MySQL Database
+- Open MySQL Workbench and create a new database named `inventory_management`.
+- Import the provided SQL dump file (`inventory_management.sql`) into the database. This file contains all the necessary tables and sample data.
+  - Go to *File > Open SQL Script, select the SQL file, and execute it.
+- Verify that the tables (`products`, `customers`, `suppliers`, `users`, etc.) are correctly created and populated.
 
-Run the SQL script (scims_schema.sql) to create the database and tables:
-```bash
-mysql -u root -p < scims_schema.sql
+### 2. Configure Database Connection
+- Navigate to the `src/database` directory in the project files.
+- Open the `ConnectionFactory.java` file using a text editor or IDE.
+- Update the following credentials in the file to match your local MySQL setup:
+  ```java
+  private static final String URL = "jdbc:mysql://localhost:3306/inventory_management";
+  private static final String USER = "root"; // Replace with your MySQL username
+  private static final String PASSWORD = "root"; // Replace with your MySQL password
+  ```
+- Save the changes.
 
-4. Configure your database credentials in config/db_config.js.
+### 3. Run the Application
+- Open Apache NetBeans (or any Java IDE you prefer).
+- Load the project by selecting *File > Open Project* and navigating to the root folder of the SCIMS project.
+- Clean and build the project to ensure all dependencies are resolved. In NetBeans, this can be done via *Run > Clean and Build Project*.
+- Execute the main application by running the `Main.java` file located in the `src/ui` directory.
 
-Frontend
-Open index.html in a browser to view the frontend.
+### 4. Logging In
+- Default administrator credentials for initial login:
+  - Username: admin
+  - Password: admin
+- Upon successful login, you will be directed to the dashboard.
 
- Running the Application
-1. Start the Backend Server 
+### 5. Application Usage
+- Dashboard: Provides a summary of key metrics, such as stock levels and recent transactions.
+- Products: Add, update, delete, and view products in the inventory.
+- Customers: Manage customer information.
+- Suppliers: Record and modify supplier details.
+- Sales and Purchases: Perform sales and purchase transactions, with automatic stock updates.
+- Users: Administrators can add and manage employee accounts.
+- Reports: Generate detailed reports of stock levels, transactions, and user activity logs.
 
-```bash
-node server.js
+### 6. Packaging and Distribution (Optional)
+- If you need to run the application outside the IDE:
+  - Navigate to the `dist` directory and locate the `SCIMS.jar` file.
+  - Ensure all dependencies in the `lib` folder are available in the same directory as the `.jar` file.
+  - Run the `.jar` file using the command:
+    ```sh
+    java -jar SCIMS.jar
+    ```
 
+---
 
-2. Open your browser and navigate to http://localhost:3000 to interact with the inventory management system.
+## Troubleshooting
+### 1. Database Connection Issues
+- Ensure the MySQL server is running and the credentials in `ConnectionFactory.java` are correct.
+- Confirm that the `inventory_management` database exists and contains all required tables.
 
- Minimum System Requirements 
-Operating System: Windows, macOS, or Linux
-RAM: 2 GB or higher
-Disk Space: 50 MB for the application files
-Software:
-Node.js v14+
-MySQL v5.7+
+### 2. Application Crashes
+- Verify that all dependencies are correctly included in the `lib` folder.
+- Check the application log for error details (found in the `logs` directory).
+
+### 3. Login Failures
+- Reset the administrator credentials directly in the `users` table of the database using MySQL Workbench.
+
